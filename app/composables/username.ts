@@ -7,12 +7,13 @@ export const useUserNameById = (user_id: ComputedRef<string>) => {
   const {
     data,
     status,
-    execute,
+    // execute,
   } = useFetch('/api/username', {
     query,
-    immediate: false,
+    // immediate: false,
     onResponse: () => {
-      console.log('fetched', user_id.value)
+      // ここで user_id.value にアクセスすると初回 fetch 時に tarnsform を通らない
+      // console.log('fetched')
     },
     transform: (input): User['name'] | null => {
       return input?.data ?? null
@@ -22,6 +23,6 @@ export const useUserNameById = (user_id: ComputedRef<string>) => {
   return {
     username: data,
     status,
-    fetchUserName: execute,
+    // fetchUserName: execute,
   }
 }

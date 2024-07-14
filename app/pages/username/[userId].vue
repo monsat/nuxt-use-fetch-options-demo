@@ -4,8 +4,8 @@ const userId = computed(() => useRoute().params.userId)
 const {
   username,
   status,
-  fetchUserName,
-} = useUserNameById(userId)
+  // fetchUserName,
+} = await useUserNameById(userId)
 
 useIntervalFn(async () => {
   await navigateTo({
@@ -15,7 +15,7 @@ useIntervalFn(async () => {
   })
 }, 3000)
 
-await fetchUserName()
+// await fetchUserName()
 </script>
 
 <template>
