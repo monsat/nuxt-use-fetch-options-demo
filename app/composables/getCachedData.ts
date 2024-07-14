@@ -2,12 +2,12 @@ import type { User, ApiResponse } from '@/types'
 
 const useFetchedAtState = () => useState('fetchedAt', () => 0)
 
-export const useFetchCachedUserNames = async (ttl = 10_000) => {
+export const useFetchCachedUserNames = (ttl = 10_000) => {
   const fetchedAtState = useFetchedAtState()
   const {
     data,
     status,
-  } = await useFetch('/api/usernames', {
+  } = useFetch('/api/usernames', {
     // immediate: false,
     watch: false,
     default: (): User['name'][] => [],

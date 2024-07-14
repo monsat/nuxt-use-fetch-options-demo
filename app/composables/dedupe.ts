@@ -1,11 +1,11 @@
 import type { User } from '@/types'
 
-export const useDedupeUserNames = async (dedupe: 'cancel' | 'defer' = 'cancel') => {
+export const useDedupeUserNames = (dedupe: 'cancel' | 'defer' = 'cancel') => {
   const {
     data,
     status,
     execute,
-  } = await useFetch('/api/usernames', {
+  } = useFetch('/api/usernames', {
     dedupe,
     // immediate: false,
     watch: false,

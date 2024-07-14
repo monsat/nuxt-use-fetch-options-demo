@@ -5,9 +5,20 @@
  */
 const {
   user,
+  isAdult,
   status,
   // fetchUser,
-} = await useFetchUserServerFalse('1002')
+} = await useFetchUserServerFalse('1001')
+
+const appUser = computed(() => {
+  if (user.value?.data == null) {
+    return null
+  }
+  return {
+    ...user.value.data,
+    isAdult: isAdult.value,
+  }
+})
 
 // await fetchUser()
 // client or server
@@ -20,8 +31,8 @@ console.log(import.meta.client ? 'client' : 'server', !!user.value?.data)
     <h1>server: false</h1>
     <FetchError :status />
     <FetchLoading :status idle />
-    <div v-if="user">
-      <AppUser :user="user.data" />
+    <div v-if="appUser">
+      <AppUser :user="appUser" />
     </div>
   </div>
 </template>
