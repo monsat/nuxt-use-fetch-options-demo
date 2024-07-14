@@ -1,7 +1,6 @@
 <script setup lang="ts">
 /**
- * lazy オプションは Suspense によりデータ取得をま初回リクエストにおいて server 側で fetch せず client のみで fetch するオプション
- * クライアントサイドのナビゲーション時は、通常通り fetch される
+ * lazy オプションは Suspense によりデータ取得を待つことなく、コンポーネントを描画する
  * await は必要ない（使用しない）
  * SSR においては SEO に必要のない要素では server: false と組み合わせ使用する
  */
