@@ -1,6 +1,7 @@
 <script setup lang="ts">
 const route = useRoute()
-const userId = computed(() => useRoute().params.userId)
+const userId = ref(useRoute().params.userId)
+// const userId = computed(() => useRoute().params.userId)
 const {
   username,
   status,
@@ -8,11 +9,14 @@ const {
 } = await useUserNameById(userId)
 
 useIntervalFn(async () => {
+  userId.value = userId.value === '1003' ? '1001' : '1003'
+  /*
   await navigateTo({
     params: {
       userId: userId.value === '1003' ? '1001' : '1003'
     }
   })
+  */
 }, 3000)
 
 // await fetchUserName()

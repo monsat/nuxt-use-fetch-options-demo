@@ -9,7 +9,7 @@
   fetchUserNames,
 } = useCachedUserNames()
 
-await fetchUserNames(true)
+await fetchUserNames()
 </script>
 
 <template>

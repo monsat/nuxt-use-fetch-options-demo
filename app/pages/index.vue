@@ -25,6 +25,9 @@ console.log('index page')
         <NuxtLink to="/users">page: users</NuxtLink>
       </li>
       <li>
+        <NuxtLink to="/refresh">page: refresh users</NuxtLink>
+      </li>
+      <li>
         <NuxtLink to="/cache">page: cached usernames</NuxtLink>
       </li>
       <li>
